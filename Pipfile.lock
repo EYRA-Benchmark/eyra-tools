@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "65e1744227fdaaa743d1e040b699a619f94f4d482fce3e7174fe0ee3c7d31983"
+            "sha256": "c1a23a314df7563ff60d8769559ccb09a8619de8f91fcb10170701982cc9fcdb"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -57,6 +57,10 @@
             ],
             "index": "pypi",
             "version": "==1.6.0"
+        },
+        "eyra-submission": {
+            "editable": true,
+            "path": "."
         },
         "future": {
             "hashes": [
