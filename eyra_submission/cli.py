@@ -12,10 +12,10 @@ def main():
     pass
 
 @main.command(short_help="Initialise an EYRA submission project.")
-@click.argument("submission_name", short_help="The name of the ")
+@click.argument("submission_name", short_help="The name of the submission project")
 def init(submission_name):
     if not submission_name.isidentifier():
-        raise ValueError(f"{} is not a valid submission name!".format(submission_name))
+        raise ValueError(f"{submission_name} is not a valid submission name!")
 
     template_dir = Path(__file__).parent / "template"
 
