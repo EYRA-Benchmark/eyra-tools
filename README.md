@@ -12,8 +12,13 @@ Install:
 - pipenv install
 - pipenv install -e .
 
+
 Future install (after pypi upload):
 - pip install eyra_submission
+
+Pre-run
+- pipenv shell
+- cd <project location>
 
 Run:
 - eyra_submission init <name>
