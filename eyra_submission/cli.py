@@ -12,8 +12,11 @@ def main():
     pass
 
 @main.command(short_help="Initialise an EYRA submission project.")
-@click.argument("package_name")
-def init(package_name):
+@click.argument("submission_name", short_help="The name of the ")
+def init(submission_name):
+    if not str.isidentifier(submission_name):
+        raise ValueError(f"{} is not a valid submission name!".format(package_name))
+
     template_dir = Path(__file__).parent / "template"
 
     try:
@@ -21,9 +24,9 @@ def init(package_name):
             template=str(template_dir.absolute()),
             no_input=True,
             extra_context={
-                "package_name": package_name,
+                "submission_name": submission_name,
             },
         )
-        click.echo(f"Created project {package_name}")
+        click.echo(f"Created submission project {submission_name}")
     except FailedHookException:
         exit(1)

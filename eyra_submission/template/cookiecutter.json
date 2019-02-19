@@ -1,4 +1,4 @@
 {
-    "package_name": "test-eyra-sub",
+    "submission_name": "test_submission",
     "docker_base_image": "python:3.7-slim"
 }
