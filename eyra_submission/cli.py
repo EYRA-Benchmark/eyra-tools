@@ -12,7 +12,7 @@ def main():
     pass
 
 @main.command(short_help="Initialise an EYRA submission project.")
-@click.argument("submission_name", short_help="The name of the submission project")
+@click.argument("submission_name")
 def init(submission_name):
     if not submission_name.isidentifier():
         raise ValueError(f"{submission_name} is not a valid submission name!")
