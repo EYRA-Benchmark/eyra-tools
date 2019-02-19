@@ -2,7 +2,7 @@ import numpy as np
 
 
 class {{ cookiecutter.submission_name|capitalize }}(object):
-    def run():
+    def run(self):
         with open("/input/data.txt", "r") as fpin, open("/output/data.txt", "w") as fpout:
             for l in fpin.readlines():
                 try:
@@ -13,4 +13,4 @@ class {{ cookiecutter.submission_name|capitalize }}(object):
 
 
 if __name__ == "__main__":
-    {{ cookiecutter.submission_name|capitalize }}.run()
+    {{ cookiecutter.submission_name|capitalize }}().run()
