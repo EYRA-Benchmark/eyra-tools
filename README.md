@@ -1,5 +1,10 @@
-EYRA submission template
-------------------------
+EYRA tools
+----------
+
+## Evaluation
+Bliep
+
+## Submission
 
 #### Prerequisites:
 - Docker
