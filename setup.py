@@ -4,6 +4,12 @@ setup(
     name="eyra_submission",
     description="EYRA submission template",
     version="0.0.1",
-    packages=find_packages(include="eyra_submission"),
-    entry_points={"console_scripts": ["eyra_submission = eyra_submission.__main__:main"]},
+    packages=find_packages(include="eyra_tools"),
+    entry_points={
+        "console_scripts":
+            [
+                "eyra_submission = eyra_tools.__main__:submission",
+                "eyra_evaluation = eyra_tools.__main__:evaluation"
+            ]
+    },
 )
