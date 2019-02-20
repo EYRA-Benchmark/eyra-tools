@@ -13,12 +13,12 @@ Bliep
 
 #### Prepare virtual environment:
 ```
-clone git@github.com:EYRA-Benchmark/eyra-submission.git
+clone git@github.com:EYRA-Benchmark/eyra-tools.git
 
 virtualenv eyra_venv
 source eyra_venv/bin/activate
-pip install cookiecutter
-pip install -e eyra-submission
+pip install -r eyra-tools/requirements.txt
+pip install -e eyra-tools
 ```
 
 #### Run:
