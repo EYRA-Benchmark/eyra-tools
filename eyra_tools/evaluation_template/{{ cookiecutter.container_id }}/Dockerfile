@@ -1,6 +1,6 @@
 FROM {{ cookiecutter.docker_base_image }}
 
-RUN mkdir -p /opt/algorithm /input /output
+RUN mkdir -p /opt/evaluation /input /output
 
 WORKDIR /opt/evaluation
 
