@@ -1,17 +1,16 @@
-EYRA tools
-----------
+# EYRA tools
 
-## Evaluation
-Bliep
+## Installation 
 
-## Submission
+#### Prerequisites
 
-#### Prerequisites:
+Make sure you have the following tools installed:
 - Docker
 - python 3.6+
 - virtualenv/pip
 
-#### Prepare virtual environment:
+#### Prepare virtual environment
+
 ```
 clone git@github.com:EYRA-Benchmark/eyra-tools.git
 
@@ -21,12 +20,31 @@ pip install -r eyra-tools/requirements.txt
 pip install -e eyra-tools
 ```
 
-#### Run:
-- `eyra_submission init <submission_name>`
+## Evaluation
+
+Meant for challenge organisers.
+
+#### Create evaluation project
+
+```
+eyra_evaluation init <evaluation_name>
+```
+
+This will create a folder with all boilerplate code to start building an evaluation container. 
+
+## Submission
+
+Meant for algorithm developers.
+
+#### Create submission project
+
+```
+eyra_submission init <submission_name>
+```
 
 This will create a folder with all boilerplate code to start building an algorithm container. 
 
-#### Develop:
+#### Develop
 - add all your algorithm's dependencies to the `<submission_name>/requirements.txt` file
 - add your algorithm's code to the run method in the `algorithm_src/algorithm.py` module (remember the imports)
 - add your input data to the `test-input-data` folder
