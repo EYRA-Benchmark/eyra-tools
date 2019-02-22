@@ -58,3 +58,7 @@ NOTE: So, please write your code so the input data is read from the `/input/` fo
 
 - to run the algorithm, execute the `test.sh` script: this will create a Docker container with your algorithm in it, and run it
 - the output data can be found in the `test-output-data` folder
+
+#### Build, export and push
+To build the docker image of your algorithm, use the `build.sh` script. To export the image to a tar file, use 
+the `export.sh` script. To upload the algorithm image to the EYRA docker registry, use the `push.sh` script.
