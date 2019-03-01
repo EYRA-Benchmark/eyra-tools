@@ -12,12 +12,12 @@ Make sure you have the following tools installed:
 #### Prepare virtual environment
 
 ```
-clone git@github.com:EYRA-Benchmark/eyra-tools.git
-
+git clone git@github.com:EYRA-Benchmark/eyra-tools.git
+cd eyra-tools
 virtualenv eyra_venv
 source eyra_venv/bin/activate
-pip install -r eyra-tools/requirements.txt
-pip install -e eyra-tools
+pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Evaluation
