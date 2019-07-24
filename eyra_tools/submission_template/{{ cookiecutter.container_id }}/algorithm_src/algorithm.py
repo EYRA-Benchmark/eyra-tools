@@ -4,10 +4,13 @@ import numpy as np
 
 class Submission(object):
     def run(self):
-        """This is boilerplate. Delete the contents of this method and put your own algorithm code here. Please do not
-        change the class name (Submission) or the method name (run)."""
+        """This is boilerplate. Delete the contents of this method and put your
+        own algorithm code here. Please do not change the class name
+        (Submission) or the method name (run).
+        """
 
-        with open("/input/example_input_data.txt", "r") as fpin, open("/output/example_output_data.txt", "w") as fpout:
+        with open("/input/example_input_data.txt", "r") as fpin, \
+             open("/output/example_output_data.txt", "w") as fpout:
             for l in fpin.readlines():
                 try:
                     x, y = [float(i) for i in l.strip().split()]
