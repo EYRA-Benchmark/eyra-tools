@@ -2,4 +2,4 @@
 
 ./build.sh
 
-docker run --rm --memory=4g -v $(pwd)/test-input-data/:/input/ -v $(pwd)/test-output-data/:/output/ {{ cookiecutter.container_id }}
+docker run --rm --memory=4g -v $(pwd)/data/input/:/input/ -v $(pwd)/data/output/:/output/ {{ cookiecutter.container_id }}
