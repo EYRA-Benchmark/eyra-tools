@@ -1,7 +1,7 @@
 Submission
 ----------
 
-If you want to participate in a challenge on the EYRA Benchmark project, you
+If you want to participate in a challenge on the EYRA Benchmark Platform, you
 need to submit a Docker container that is able to run your algorithm.
 The EYRA tools can be used to generate a boilerplate container to setup up
 everything, so you can focus on implementing your algorithm.
