@@ -17,7 +17,7 @@ def generate(container_type, container_id_prefix):
         raise ValueError(f"{container_id_prefix} is not a valid container id prefix!")
 
     container_id = "{}_{}".format(container_id_prefix, str(uuid1()))
-    template_dir = Path(__file__).parent / "submission_template"
+    template_dir = Path(__file__).parent / "template"
 
     if container_type == 'submission':
         src_prefix = 'algorithm'

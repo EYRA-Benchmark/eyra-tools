@@ -6,11 +6,14 @@ from pathlib import Path
 from plumbum.cmd import bash
 
 
+@pytest.fixture
+def template_dir():
+    return Path(__file__).parent.parent / "eyra_tools" / "template"
+
+
 @pytest.mark.parametrize('ctype,prefix', [('submission', 'algorithm'),
                                           ('evaluation', 'evaluation')])
-def test_project_container_type(ctype, prefix, cookies):
-    template_dir = Path(__file__).parent.parent / "eyra_tools" / "submission_template"
-
+def test_project_container_type(ctype, prefix, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
                            extra_context={'container_id': 'example',
                                           'container_type': ctype,
@@ -25,10 +28,7 @@ def test_project_container_type(ctype, prefix, cookies):
 
 @pytest.mark.parametrize('ctype,prefix', [('submission', 'algorithm'),
                                           ('evaluation', 'evaluation')])
-def test_submission_run_test_sh(ctype, prefix, cookies):
-    template_dir = Path(__file__).parent.parent / \
-        "eyra_tools" / "submission_template"
-
+def test_submission_run_test_sh(ctype, prefix, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
                            extra_context={'container_id': 'example',
                                           'container_type': ctype,

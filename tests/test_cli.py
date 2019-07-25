@@ -4,7 +4,7 @@ import os
 from click.testing import CliRunner
 from plumbum.cmd import ls
 
-from eyra_tools.submission_cli import generate
+from eyra_tools.generate import generate
 
 
 def test_generate_submission_invalid_container_id():
