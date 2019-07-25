@@ -2,11 +2,11 @@
 import numpy as np
 
 
-class Submission(object):
+class {{ cookiecutter.src_prefix.capitalize() }}(object):
     def run(self):
         """This is boilerplate. Delete the contents of this method and put your
         own algorithm code here. Please do not change the class name
-        (Submission) or the method name (run).
+        ({{ cookiecutter.src_prefix.capitalize() }}) or the method name (run).
         """
 
         with open("/input/example_input_data.txt", "r") as fpin, \
@@ -21,4 +21,4 @@ class Submission(object):
 
 # Please do not change anything below
 if __name__ == "__main__":
-    Submission().run()
+    {{ cookiecutter.src_prefix.capitalize() }}().run()

@@ -8,8 +8,7 @@ setup(
     entry_points={
         "console_scripts":
             [
-                "eyra_submission = eyra_tools.__main__:submission",
-                "eyra_evaluation = eyra_tools.__main__:evaluation"
+                "eyra-generate = eyra_tools.submission_cli:generate"
             ]
     },
 )

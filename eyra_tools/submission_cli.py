@@ -8,20 +8,21 @@ from cookiecutter.main import cookiecutter
 from . import __version__
 
 
-@click.group(context_settings=dict(help_option_names=["-h", "--help"]))
+@click.command(short_help="Initialise an EYRA submission or evaluation project.")
 @click.version_option(__version__, "-v", "--version")
-def submission():
-    pass
-
-
-@submission.command(short_help="Initialise an EYRA submission project.")
+@click.argument("container_type", type=click.Choice(['submission', 'evaluation']))
 @click.argument("container_id_prefix")
-def init(container_id_prefix):
+def generate(container_type, container_id_prefix):
     if not container_id_prefix.isidentifier():
         raise ValueError(f"{container_id_prefix} is not a valid container id prefix!")
 
     container_id = "{}_{}".format(container_id_prefix, str(uuid1()))
     template_dir = Path(__file__).parent / "submission_template"
+
+    if container_type == 'submission':
+        src_prefix = 'algorithm'
+    else:
+        src_prefix = 'evaluation'
 
     try:
         cookiecutter(
@@ -29,6 +30,8 @@ def init(container_id_prefix):
             no_input=True,
             extra_context={
                 "container_id": container_id,
+                "container_type": container_type,
+                "src_prefix": src_prefix
             },
         )
         click.echo(f"Created submission project in {container_id}. Good luck!")

@@ -1,1 +1,6 @@
 cookiecutter==1.6.0
+plumbum
+
+# Testing
+pytest<5.0.0,>=3.3.0
+pytest-cookies
