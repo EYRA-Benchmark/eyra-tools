@@ -12,4 +12,7 @@ setup(
                 "eyra-generate = eyra_tools.generate:generate"
             ]
     },
+    classifiers=[
+        'License :: OSI Approved :: Apache Software License',
+    ],
 )
