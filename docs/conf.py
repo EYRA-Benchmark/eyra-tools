@@ -37,9 +37,10 @@ author = 'EYRA Benchmark Team'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon',
-              'sphinx.ext.autosectionlabel']
+              'sphinx.ext.autosectionlabel', 'sphinx.ext.todo']
 
 autosectionlabel_prefix_document = True
+todo_include_todos = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -69,7 +70,6 @@ master_doc = 'index'
 def generate_code_examples(_):
 
     generate_project('submission')
-    generate_project('evaluation')
 
 
 def generate_project(container_type):
