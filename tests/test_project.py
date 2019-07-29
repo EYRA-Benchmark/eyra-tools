@@ -11,13 +11,11 @@ def template_dir():
     return Path(__file__).parent.parent / "eyra_tools" / "template"
 
 
-@pytest.mark.parametrize('ctype,prefix', [('submission', 'algorithm'),
-                                          ('evaluation', 'evaluation')])
-def test_project_container_type(ctype, prefix, template_dir, cookies):
+@pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
+def test_project_container_type(ctype, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
                            extra_context={'container_id': 'example',
-                                          'container_type': ctype,
-                                          'src_prefix': prefix})
+                                          'container_type': ctype})
     print(template_dir)
 
     assert project.exit_code == 0
@@ -26,13 +24,11 @@ def test_project_container_type(ctype, prefix, template_dir, cookies):
     assert project.project.isdir()
 
 
-@pytest.mark.parametrize('ctype,prefix', [('submission', 'algorithm'),
-                                          ('evaluation', 'evaluation')])
-def test_submission_run_test_sh(ctype, prefix, template_dir, cookies):
+@pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
+def test_submission_run_test_sh(ctype, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
                            extra_context={'container_id': 'example',
-                                          'container_type': ctype,
-                                          'src_prefix': prefix})
+                                          'container_type': ctype})
     cwd = os.getcwd()
     os.chdir(str(project.project))
 

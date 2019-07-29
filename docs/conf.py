@@ -68,11 +68,11 @@ master_doc = 'index'
 
 def generate_code_examples(_):
 
-    generate_project('submission', 'algorithm')
-    generate_project('evaluation', 'evaluation')
+    generate_project('submission')
+    generate_project('evaluation')
 
 
-def generate_project(container_type, src_prefix):
+def generate_project(container_type):
     """Generate the Python files using the cookiecutter and copy them to the
     documentation.
     """
@@ -87,13 +87,12 @@ def generate_project(container_type, src_prefix):
         no_input=True,
         extra_context={
             "container_id": "test",
-            "container_type": container_type,
-            "src_prefix": src_prefix
+            "container_type": container_type
         },
     )
 
-    src = Path(tmp_dir) / "test" / (src_prefix + "_src") / (src_prefix + ".py")
-    dst = Path(here) / (src_prefix + ".py")
+    src = Path(tmp_dir) / "test" / "algorithm_src" / "algorithm.py"
+    dst = Path(here) / "algorithm.py"
     print('From:', src)
     print('To:', dst)
     shutil.copy(src, dst)

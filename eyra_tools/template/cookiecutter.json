@@ -2,6 +2,5 @@
     "container_id": "",
     "docker_base_image": "python:3.7-slim",
     "docker_registry_url": "docker-registry.staging.eyrabenchmark.net",
-    "container_type": "",
-    "src_prefix": ""
+    "container_type": ""
 }
