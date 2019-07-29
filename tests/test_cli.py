@@ -2,7 +2,6 @@ import pytest
 import os
 
 from click.testing import CliRunner
-from plumbum.cmd import ls
 
 from eyra_tools.generate import generate
 
@@ -24,6 +23,6 @@ def test_project_creation(container_type):
 
         assert result.exit_code == 0
 
-        project_dir_name = ls().strip()
+        project_dir_name = os.listdir()[0]
 
         assert os.path.isdir(project_dir_name)
