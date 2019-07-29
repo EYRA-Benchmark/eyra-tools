@@ -10,7 +10,7 @@ Quickstart
 ##########
 
 1. Generate a boilerplate algorithm container by running:
-   ``eyra_submission init <submission_name>``. A directory called
+   ``eyra-generate submission <submission_name>``. A directory called
    ``<submission_name>_<identifier>`` is created.
 2. Download the training data for your challenge, unzip the files if necessary,
    and put them in the ``<submission_name>_<identifier>/data/input/`` directory.
@@ -37,7 +37,7 @@ After :ref:`installing the EYRA Tools<Installation>`, generate a boilerplate con
 
 .. code-block:: sh
 
-    eyra_submission init <submission_name>
+    eyra-generate submission <submission_name>
 
 
 This will create a directory with the following structure:
