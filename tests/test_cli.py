@@ -20,6 +20,8 @@ def test_project_creation(container_type):
     with runner.isolated_filesystem():
         result = runner.invoke(generate, [container_type, 'example'])
 
+        print(result)
+
         assert result.exit_code == 0
 
         project_dir_name = ls().strip()
