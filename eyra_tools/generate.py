@@ -34,6 +34,6 @@ def generate(container_type, container_id_prefix):
                 "src_prefix": src_prefix
             },
         )
-        click.echo(f"Created submission project in {container_id}. Good luck!")
+        click.echo("Created submission project in {}. Good luck!".format(container_id))
     except FailedHookException:
         exit(1)

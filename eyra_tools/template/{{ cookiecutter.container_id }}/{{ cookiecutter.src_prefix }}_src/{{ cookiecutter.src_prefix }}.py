@@ -16,7 +16,7 @@ class {{ cookiecutter.container_type.capitalize() }}(object):
                     x, y = [float(i) for i in l.strip().split()]
                 except ValueError:
                     continue
-                fpout.write(f"{x} {y**2} {x*np.pi}\n")
+                fpout.write("{} {} {}\n".format(x, y**2, x*np.pi))
 
 
 # Please do not change anything below
