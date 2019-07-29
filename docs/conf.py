@@ -92,6 +92,8 @@ def generate_project(container_type, src_prefix):
 
     src = Path(tmp_dir) / "test" / (src_prefix + "_src") / (src_prefix + ".py")
     dst = Path(here) / (src_prefix + ".py")
+    print('From:', src)
+    print('To:', dst)
     shutil.copy(src, dst)
 
     shutil.rmtree(tmp_dir)
