@@ -33,7 +33,8 @@ Quickstart
 Complete example
 ################
 
-After :ref:`installing the EYRA Tools<Installation>`, generate a boilerplate container by running:
+After :ref:`installing the EYRA Tools<installation:Installation>`, generate a
+boilerplate container by running:
 
 .. code-block:: sh
 
