@@ -14,7 +14,7 @@ from . import __version__
 @click.argument("container_id_prefix")
 def generate(container_type, container_id_prefix):
     if not container_id_prefix.isidentifier():
-        raise ValueError(f"{container_id_prefix} is not a valid container id prefix!")
+        raise ValueError("{} is not a valid container id prefix!".format(container_id_prefix))
 
     container_id = "{}_{}".format(container_id_prefix, str(uuid1()))
     template_dir = Path(__file__).parent / "template"
