@@ -20,3 +20,6 @@ docs/apidocs
 
 # Mac
 .DS_Store
+
+docs/algorithm.py
+docs/evaluation.py

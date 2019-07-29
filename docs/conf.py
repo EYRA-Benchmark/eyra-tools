@@ -4,6 +4,14 @@
 # list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
 
+import os
+import tempfile
+import shutil
+
+from pathlib import Path
+
+from cookiecutter.main import cookiecutter
+
 # -- Path setup --------------------------------------------------------------
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -13,6 +21,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
+here = os.path.dirname(__file__)
 
 
 # -- Project information -----------------------------------------------------
@@ -54,3 +63,39 @@ html_static_path = ['_static']
 # Specify index.rst is the root of the documentation
 # See https://stackoverflow.com/questions/56336234/build-fail-sphinx-error-contents-rst-not-found
 master_doc = 'index'
+
+def generate_code_examples(_):
+
+    generate_project('submission', 'algorithm')
+    generate_project('evaluation', 'evaluation')
+
+
+def generate_project(container_type, src_prefix):
+    """Generate the Python files using the cookiecutter and copy them to the
+    documentation.
+    """
+
+    tmp_dir = tempfile.mkdtemp()
+
+    template_dir = Path(__file__).parent.parent / "eyra_tools" / "template"
+
+    cookiecutter(
+        template=str(template_dir.absolute()),
+        output_dir=tmp_dir,
+        no_input=True,
+        extra_context={
+            "container_id": "test",
+            "container_type": container_type,
+            "src_prefix": src_prefix
+        },
+    )
+
+    src = Path(tmp_dir) / "test" / (src_prefix + "_src") / (src_prefix + ".py")
+    dst = Path(here) / (src_prefix + ".py")
+    shutil.copy(src, dst)
+
+    shutil.rmtree(tmp_dir)
+
+
+def setup(app):
+    app.connect('builder-inited', generate_code_examples)

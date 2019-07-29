@@ -75,7 +75,7 @@ Implement your algorithm in ``algorithm_src/algorithm.py``
 All code related to your algorithm should be put in the ``algorithm_src`` directory.
 It currently contains a single Python file called ``algorithm.py``:
 
-.. literalinclude:: ../eyra_tools/submission_template/{{ cookiecutter.container_id }}/algorithm_src/algorithm.py
+.. literalinclude:: algorithm.py
    :language: python
    :linenos:
 
