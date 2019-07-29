@@ -9,7 +9,7 @@ from . import __version__
 
 
 @click.command(short_help="Initialise an EYRA algorithm container.")
-@click.version_option(__version__, "-v", "--version")
+@click.version_option(__version__.__version__, "-v", "--version")
 @click.argument("container_type", type=click.Choice(['submission', 'evaluation']))
 @click.argument("container_id_prefix")
 def generate(container_type, container_id_prefix):
