@@ -1,5 +1,6 @@
 # EYRA tools
-[![Build Status](https://travis-ci.org/jvdzwaan/eyra-tools.svg?branch=master)](https://travis-ci.org/jvdzwaan/eyra-tools)
+
+[![Build Status](https://travis-ci.org/EYRA-Benchmark/eyra-tools.svg?branch=master)](https://travis-ci.org/EYRA-Benchmark/eyra-tools)
 [![Documentation Status](https://readthedocs.org/projects/eyra-tools/badge/?version=latest)](https://eyra-tools.readthedocs.io/en/latest/?badge=latest)
 
 ## Installation
