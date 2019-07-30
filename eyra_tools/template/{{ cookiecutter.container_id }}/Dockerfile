@@ -9,4 +9,4 @@ RUN python -m pip install -r requirements.txt
 
 ADD algorithm_src /opt/algorithm/
 
-ENTRYPOINT "python" "-m" "algorithm"
+ENTRYPOINT "python" "-m" "run_{{ cookiecutter.container_type }}"
