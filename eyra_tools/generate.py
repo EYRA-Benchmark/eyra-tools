@@ -25,7 +25,8 @@ def generate(container_type, container_id_prefix):
             no_input=True,
             extra_context={
                 "container_id": container_id,
-                "container_type": container_type
+                "container_type": container_type,
+                "project_name": container_id_prefix
             },
         )
         click.echo("Created algorithm container in {}. Good luck!".format(container_id))
