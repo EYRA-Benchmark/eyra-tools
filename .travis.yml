@@ -1,0 +1,19 @@
+# Config file for automatic testing at travis-ci.org
+services:
+  - docker
+dist: xenial   # required for Python >= 3.7
+language: python
+python:
+  - "3.5"
+  - "3.6"
+  - "3.7"
+
+# command to install dependencies and Python package
+install:
+  - pip install -r requirements.txt
+  - pip install .
+  - pip list
+  - pip show -f eyra-tools
+
+# command to run tests
+script: pytest

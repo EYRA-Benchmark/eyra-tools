@@ -8,20 +8,16 @@ from cookiecutter.main import cookiecutter
 from . import __version__
 
 
-@click.group(context_settings=dict(help_option_names=["-h", "--help"]))
-@click.version_option(__version__, "-v", "--version")
-def submission():
-    pass
-
-
-@submission.command(short_help="Initialise an EYRA submission project.")
+@click.command(short_help="Initialise an EYRA algorithm container.")
+@click.version_option(__version__.__version__, "-v", "--version")
+@click.argument("container_type", type=click.Choice(['submission', 'evaluation']))
 @click.argument("container_id_prefix")
-def init(container_id_prefix):
+def generate(container_type, container_id_prefix):
     if not container_id_prefix.isidentifier():
-        raise ValueError(f"{container_id_prefix} is not a valid container id prefix!")
+        raise ValueError("{} is not a valid container id prefix!".format(container_id_prefix))
 
     container_id = "{}_{}".format(container_id_prefix, str(uuid1()))
-    template_dir = Path(__file__).parent / "submission_template"
+    template_dir = Path(__file__).parent / "template"
 
     try:
         cookiecutter(
@@ -29,8 +25,9 @@ def init(container_id_prefix):
             no_input=True,
             extra_context={
                 "container_id": container_id,
+                "container_type": container_type
             },
         )
-        click.echo(f"Created submission project in {container_id}. Good luck!")
+        click.echo("Created algorithm container in {}. Good luck!".format(container_id))
     except FailedHookException:
         exit(1)
