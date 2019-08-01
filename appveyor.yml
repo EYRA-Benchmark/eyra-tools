@@ -12,7 +12,7 @@ environment:
 
 init:
   - "ECHO %PYTHON%"
-  - SET PATH=C:\MinGW;C:\MinGW\bin;%PATH%
+#  - SET PATH=C:\MinGW;C:\MinGW\bin;%PATH%
 
 install:
   - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
