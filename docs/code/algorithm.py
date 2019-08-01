@@ -2,36 +2,53 @@ import pandas as pd
 
 from pathlib import Path
 
-from sklearn import preprocessing, svm
+from sklearn import svm
 
 
-def iris_svm(in_file, out_dir):
-    """Train Support Vector Machines for the EYRA demo benchmark.
-    """
+def train_svm(in_file):
     # Read the training file
-    train = pd.read_csv(in_file, header=None)
-    train.columns = ['sepal_length', 'sepal_width', 'petal_length',
-                     'petal_width', 'class']
+    train = pd.read_csv(in_file)
 
-    # Convert string class labels to integers
-    le = preprocessing.LabelEncoder()
-    targets = le.fit_transform(train['class'])
+    train_data = train[['sepal_length', 'sepal_width', 'petal_length',
+                        'petal_width']].values
+    train_targets = list(train['class'])
 
     # Train the classifier
     clf = svm.SVC(gamma=0.001, C=100.)
-    clf.fit(train[['sepal_length', 'sepal_width', 'petal_length',
-                   'petal_width']].values, targets)
+    clf.fit(train_data, train_targets)
 
-    # Predict using the test data
-    pred = clf.predict(train[['sepal_length', 'sepal_width', 'petal_length',
-                              'petal_width']].values)
+    return clf
+
+
+def predict(clf, test_data_file):
+    test = pd.read_csv(test_data_file)
+
+    return clf.predict(test.values)
+
+
+def iris_svm(train_file, test_file, out_file):
+    """Train Support Vector Machines for the EYRA Demo Benchmark.
+    """
+    # Train classifier
+    clf = train_svm(train_file)
+
+    # Predict
+    pred = predict(clf, test_file)
+
+    print(pred)
+
     output = pd.DataFrame()
-    output['class'] = le.inverse_transform(pred)
+    output['class'] = pred
 
     # Write the output to file
-    output.to_csv(Path(out_dir) / 'team_eyra.csv')
+    output.to_csv(out_file)
+
 
 if __name__ == "__main__":
-    in_file = Path('data') / 'input' / 'iris.data'
-    out_dir = Path('data') / 'output'
-    iris_svm(in_file, out_dir)
+    # Run the algorithm on your local copy of the data by typing:
+    # python algorithm_scr/algorithm.py
+    train_file = Path('data')/'input'/'iris_train.csv'
+    test_file = Path('data')/'input'/'iris_public_test_data.csv'
+    out_file = Path('data')/'output'/'team_eyra.csv'
+
+    iris_svm(train_file, test_file, out_file)
