@@ -13,7 +13,7 @@ environment:
 init:
   - "ECHO %PYTHON%"
   - "ECHO %PATH%"
-  - SET PATH=C:\MinGW;C:\MinGW\bin%PATH%
+  - SET PATH=C:\MinGW;C:\MinGW\bin;%PATH%
   - "ECHO %PATH%"
 
 install:
@@ -21,7 +21,7 @@ install:
   - "%PYTHON%\\python.exe setup.py install"
 
 test_script:
-  - set PATH=%PYTHON%\\Scripts
+  - set PATH=%PYTHON%\\Scripts;%PATH%
   # Run py.test with 'v' (verbose) to show test function names and
   # 'rs' to show reasons for skipped tests
   - "pytest -v -rs"
