@@ -13,7 +13,7 @@ environment:
 init:
   - "ECHO %PYTHON%"
   - "ECHO %PATH%"
-  - SET PATH=C:\MinGW;C:\MinGW\bin\%PATH%
+  - SET PATH=C:\MinGW;C:\MinGW\bin%PATH%
   - "ECHO %PATH%"
 
 install:
