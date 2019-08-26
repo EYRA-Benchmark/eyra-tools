@@ -41,7 +41,7 @@ def test_submission_run_test_sh(ctype, template_dir, cookies):
         os.chdir(cwd)
 
     # test output
-    out = project.project.join('data', 'output', 'example_output_data.txt')
+    out = project.project.join('data', 'output')
     assert os.path.isfile(str(out))
 
 
