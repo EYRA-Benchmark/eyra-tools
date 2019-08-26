@@ -6,7 +6,7 @@ from click.testing import CliRunner
 from eyra_tools.generate import generate
 
 
-def test_generate_submission_invalid_container_id():
+def test_generate_submission_invalid_container_name():
     runner = CliRunner()
     result = runner.invoke(generate, ['submission', 'in valid'])
 

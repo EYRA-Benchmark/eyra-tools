@@ -86,7 +86,7 @@ def generate_project(container_type):
         output_dir=tmp_dir,
         no_input=True,
         extra_context={
-            "container_id": "test",
+            "container_name": "test",
             "container_type": container_type
         },
     )

@@ -1,5 +1,4 @@
 from pathlib import Path
-from uuid import uuid1
 
 import click
 from cookiecutter.exceptions import FailedHookException
@@ -11,12 +10,11 @@ from . import __version__
 @click.command(short_help="Initialise an EYRA algorithm container.")
 @click.version_option(__version__.__version__, "-v", "--version")
 @click.argument("container_type", type=click.Choice(['submission', 'evaluation']))
-@click.argument("container_id_prefix")
-def generate(container_type, container_id_prefix):
-    if not container_id_prefix.isidentifier():
-        raise ValueError("{} is not a valid container id prefix!".format(container_id_prefix))
+@click.argument("container_name")
+def generate(container_type, container_name):
+    if not container_name.isidentifier():
+        raise ValueError("{} is not a valid container id prefix!".format(container_name))
 
-    container_id = "{}_{}".format(container_id_prefix, str(uuid1()))
     template_dir = Path(__file__).parent / "template"
 
     try:
@@ -24,11 +22,10 @@ def generate(container_type, container_id_prefix):
             template=str(template_dir.absolute()),
             no_input=True,
             extra_context={
-                "container_id": container_id,
-                "container_type": container_type,
-                "project_name": container_id_prefix
+                "container_name": container_name,
+                "container_type": container_type
             },
         )
-        click.echo("Created algorithm container in {}. Good luck!".format(container_id))
+        click.echo("Created algorithm container in {}. Good luck!".format(container_name))
     except FailedHookException:
         exit(1)

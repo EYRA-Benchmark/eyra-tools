@@ -14,7 +14,7 @@ def template_dir():
 @pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
 def test_project_container_type(ctype, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
-                           extra_context={'container_id': 'example',
+                           extra_context={'container_name': 'example',
                                           'container_type': ctype})
     print(template_dir)
 
@@ -27,7 +27,7 @@ def test_project_container_type(ctype, template_dir, cookies):
 @pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
 def test_submission_run_test_sh(ctype, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
-                           extra_context={'container_id': 'example',
+                           extra_context={'container_name': 'example',
                                           'container_type': ctype})
     cwd = os.getcwd()
     os.chdir(str(project.project))
