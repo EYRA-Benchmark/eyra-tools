@@ -11,7 +11,8 @@ from . import __version__
 @click.version_option(__version__.__version__, "-v", "--version")
 @click.argument("container_type", type=click.Choice(['submission', 'evaluation']))
 @click.argument("container_name")
-def generate(container_type, container_name):
+@click.option('-d', '--docker-hub-account', prompt='Docker hub account')
+def generate(container_type, container_name, docker_hub_account):
     if not container_name.isidentifier():
         raise ValueError("{} is not a valid container id prefix!".format(container_name))
 
@@ -23,7 +24,8 @@ def generate(container_type, container_name):
             no_input=True,
             extra_context={
                 "container_name": container_name,
-                "container_type": container_type
+                "container_type": container_type,
+                "docker_hub_account": docker_hub_account
             },
         )
         click.echo("Created algorithm container in {}. Good luck!".format(container_name))

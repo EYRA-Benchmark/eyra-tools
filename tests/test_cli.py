@@ -8,7 +8,7 @@ from eyra_tools.generate import generate
 
 def test_generate_submission_invalid_container_name():
     runner = CliRunner()
-    result = runner.invoke(generate, ['submission', 'in valid'])
+    result = runner.invoke(generate, ['submission', 'in valid', '-d', 'test'])
 
     assert result.exit_code == 1
 
@@ -17,7 +17,8 @@ def test_generate_submission_invalid_container_name():
 def test_project_creation(container_type):
     runner = CliRunner()
     with runner.isolated_filesystem():
-        result = runner.invoke(generate, [container_type, 'example'])
+        result = runner.invoke(generate,
+                               [container_type, 'example', '-d', 'test'])
 
         print(result)
 

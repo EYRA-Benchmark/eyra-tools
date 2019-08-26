@@ -1,7 +1,7 @@
 {
     "container_name": "",
     "docker_base_image": "python:3.7-slim",
-    "docker_registry_url": "docker-registry.staging.eyrabenchmark.net",
+    "docker_hub_account": "",
     "container_type": "",
     "project_name": ""
 }
