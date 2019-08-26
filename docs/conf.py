@@ -91,8 +91,8 @@ def generate_project(container_type):
         },
     )
 
-    src = Path(tmp_dir) / "test" / "algorithm_src" / "algorithm.py"
-    dst = Path(here) / "algorithm.py"
+    src = Path(tmp_dir) / "test" / "src" / "{}.py".format(container_type)
+    dst = Path(here) / "{}.py".format(container_type)
     print('From:', src)
     print('To:', dst)
     shutil.copy(src, dst)

@@ -21,5 +21,5 @@ docs/apidocs
 # Mac
 .DS_Store
 
-docs/algorithm.py
+docs/submission.py
 docs/evaluation.py
