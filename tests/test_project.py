@@ -47,8 +47,9 @@ def test_run_code_locally(ctype, template_dir, cookies):
 
 @pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
 def test_run_test_sh(ctype, template_dir, cookies):
+    container_name = 'eyratools_pytest_container'
     project = cookies.bake(template=str(template_dir.absolute()),
-                           extra_context={'container_name': 'example',
+                           extra_context={'container_name': container_name,
                                           'container_type': ctype})
     cwd = os.getcwd()
     os.chdir(str(project.project))
