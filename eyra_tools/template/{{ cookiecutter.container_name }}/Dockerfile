@@ -1,12 +1,12 @@
 FROM {{ cookiecutter.docker_base_image }}
 
-RUN mkdir -p /opt/algorithm /input /output
+RUN mkdir -p /opt/src /input /output
 
-WORKDIR /opt/algorithm
+WORKDIR /opt/src
 
-COPY requirements.txt /opt/algorithm/
+COPY requirements.txt /opt/src/
 RUN python -m pip install -r requirements.txt
 
-ADD algorithm_src /opt/algorithm/
+ADD src /opt/src/
 
 ENTRYPOINT "python" "-m" "run_{{ cookiecutter.container_type }}"
