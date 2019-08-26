@@ -3,7 +3,7 @@ import os
 import plumbum
 
 from pathlib import Path
-from plumbum.cmd import bash
+from plumbum.cmd import bash, python
 
 
 @pytest.fixture
@@ -22,6 +22,27 @@ def test_project_container_type(ctype, template_dir, cookies):
     assert project.exception is None
     assert project.project.basename.startswith('example')
     assert project.project.isdir()
+
+
+@pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
+def test_run_code_locally(ctype, template_dir, cookies):
+    project = cookies.bake(template=str(template_dir.absolute()),
+                           extra_context={'container_name': 'example',
+                                          'container_type': ctype})
+    cwd = os.getcwd()
+    os.chdir(str(project.project))
+
+    # run script src/[submission|evaluation].py
+    try:
+        python(Path('src')/'{}.py'.format(ctype))
+    except plumbum.ProcessExecutionError as e:
+        pytest.fail(e)
+    finally:
+        os.chdir(cwd)
+
+    # test output
+    out = project.project.join('data', 'output')
+    assert os.path.isfile(str(out))
 
 
 @pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
