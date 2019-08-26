@@ -43,14 +43,14 @@ if __name__ == "__main__":
     # These are the default file paths (names) for input and output, so don't
     # change them.
 {%- if cookiecutter.container_type == 'evaluation' %}
-    submission_file = Path('data')/'input'/'implementation_output'
-    test_gt_file = Path('data')/'input'/'ground_truth'
-    out_file = Path('data')/'output'
+    submission_file = str(Path('data')/'input'/'implementation_output')
+    test_gt_file = str(Path('data')/'input'/'ground_truth')
+    out_file = str(Path('data')/'output')
 
     my_evaluation(submission_file, test_gt_file, out_file)
 {%- else %}
-    test_file = Path('data')/'input'/'test_data'
-    out_file = Path('data')/'output'
+    test_file = str(Path('data')/'input'/'test_data')
+    out_file = str(Path('data')/'output')
 
     my_submission(test_file, out_file)
 {%- endif %}
