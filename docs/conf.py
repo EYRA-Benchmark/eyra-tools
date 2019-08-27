@@ -102,6 +102,7 @@ def generate_project(container_type):
     )
 
     copy_file("{}.py".format(container_type), tmp_dir)
+    copy_file("run_{}.py".format(container_type), tmp_dir)
 
     shutil.rmtree(tmp_dir)
 

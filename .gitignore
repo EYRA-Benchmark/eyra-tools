@@ -23,3 +23,5 @@ docs/apidocs
 
 docs/code/submission.py
 docs/code/evaluation.py
+docs/code/run_submission.py
+docs/code/run_evaluation.py
