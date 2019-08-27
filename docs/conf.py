@@ -70,6 +70,7 @@ master_doc = 'index'
 def generate_code_examples(_):
 
     generate_project('submission')
+    generate_project('evaluation')
 
 
 def generate_project(container_type):
@@ -92,7 +93,7 @@ def generate_project(container_type):
     )
 
     src = Path(tmp_dir) / "test" / "src" / "{}.py".format(container_type)
-    dst = Path(here) / "{}.py".format(container_type)
+    dst = Path(here) / 'code' / "{}.py".format(container_type)
     print('From:', src)
     print('To:', dst)
     shutil.copy(src, dst)
