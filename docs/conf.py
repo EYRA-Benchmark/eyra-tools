@@ -67,6 +67,15 @@ html_static_path = ['_static']
 # See https://stackoverflow.com/questions/56336234/build-fail-sphinx-error-contents-rst-not-found
 master_doc = 'index'
 
+
+def copy_file(file_name, tmp_dir):
+    src = Path(tmp_dir) / "test" / "src" / file_name
+    dst = Path(here) / 'code' / file_name
+    print('From:', src)
+    print('To:', dst)
+    shutil.copy(src, dst)
+
+
 def generate_code_examples(_):
 
     generate_project('submission')
@@ -92,11 +101,7 @@ def generate_project(container_type):
         },
     )
 
-    src = Path(tmp_dir) / "test" / "src" / "{}.py".format(container_type)
-    dst = Path(here) / 'code' / "{}.py".format(container_type)
-    print('From:', src)
-    print('To:', dst)
-    shutil.copy(src, dst)
+    copy_file("{}.py".format(container_type), tmp_dir)
 
     shutil.rmtree(tmp_dir)
 
