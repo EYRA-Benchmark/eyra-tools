@@ -1,10 +1,9 @@
-# Add your imports here; numpy is only used as an example
-{%- if cookiecutter.container_type == 'evaluation' %}
+{%- if cookiecutter.container_type == 'evaluation' -%}
 import json
-
-{% endif %}
+{% endif -%}
 from pathlib import Path
 
+# Add your imports here; numpy is only used as an example
 import numpy as np
 
 
