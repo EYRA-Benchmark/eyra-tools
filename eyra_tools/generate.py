@@ -1,6 +1,8 @@
+import os
 from pathlib import Path
 
 import click
+
 from cookiecutter.exceptions import FailedHookException
 from cookiecutter.main import cookiecutter
 
@@ -14,7 +16,7 @@ from . import __version__
 @click.option('-d', '--docker-hub-account', prompt='Docker hub account')
 def generate(container_type, container_name, docker_hub_account):
     if not container_name.isidentifier():
-        raise ValueError("{} is not a valid container id prefix!".format(container_name))
+        raise ValueError("{} is not a valid container name!".format(container_name))
 
     template_dir = Path(__file__).parent / "template"
 
@@ -28,6 +30,8 @@ def generate(container_type, container_name, docker_hub_account):
                 "docker_hub_account": docker_hub_account
             },
         )
-        click.echo("Created algorithm container in {}. Good luck!".format(container_name))
+        msg = 'Created {} {} container in "{}{}". Good luck!'
+        p = 'an' if container_type == 'evaluation' else 'a'
+        click.echo(msg.format(p, container_type, container_name, os.sep))
     except FailedHookException:
         exit(1)
