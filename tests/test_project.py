@@ -24,6 +24,32 @@ def test_project_container_type(ctype, template_dir, cookies):
     assert project.project.isdir()
 
 
+def test_input_data_removal_submission(template_dir, cookies):
+    project = cookies.bake(template=str(template_dir.absolute()),
+                           extra_context={'container_name': 'example',
+                                          'container_type': 'submission'})
+    print(template_dir)
+
+    data_dir = Path(project.project)/'data'/'input'
+
+    assert os.path.isfile(str(data_dir/'test_data'))
+    assert not os.path.isfile(str(data_dir/'ground_truth'))
+    assert not os.path.isfile(str(data_dir/'implementation_output'))
+
+
+def test_input_data_removal_evaluation(template_dir, cookies):
+    project = cookies.bake(template=str(template_dir.absolute()),
+                           extra_context={'container_name': 'example',
+                                          'container_type': 'evaluation'})
+    print(template_dir)
+
+    data_dir = Path(project.project)/'data'/'input'
+
+    assert not os.path.isfile(str(data_dir/'test_data'))
+    assert os.path.isfile(str(data_dir/'ground_truth'))
+    assert os.path.isfile(str(data_dir/'implementation_output'))
+
+
 @pytest.mark.parametrize('ctype', ['submission', 'evaluation'])
 def test_run_code_locally(ctype, template_dir, cookies):
     project = cookies.bake(template=str(template_dir.absolute()),
