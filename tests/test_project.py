@@ -43,7 +43,7 @@ def test_input_data_removal_evaluation(template_dir, cookies):
                                           'container_type': 'evaluation'})
     print(template_dir)
 
-    data_dir = Path(project.project)/'data'/'input'
+    data_dir = Path(str(project.project))/'data'/'input'
 
     assert not os.path.isfile(str(data_dir/'test_data'))
     assert os.path.isfile(str(data_dir/'ground_truth'))
