@@ -7,7 +7,7 @@ Requirements
 Make sure you have the following tools installed:
 
 - Docker
-- Python 3.6+
+- Python 3.5+
 - virtualenv/pip
 
 Prepare virtual environment
