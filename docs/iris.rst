@@ -46,8 +46,8 @@ as participant data, one set as public test data and one set as private test
 data. See under `For organizers: creating a benchmark`_ for more details about
 the creation of the datasets.
 
-For participants: creating a model
-##################################
+For participants: create a model
+################################
 
 ############
 Get the data
@@ -134,8 +134,8 @@ anything about performance. If you would like to estimate performance of your
 model using participant data only, have a look at
 `cross-validation <https://machinelearningmastery.com/k-fold-cross-validation/>`_.
 
-For participants: creating a submission
-#######################################
+For participants: create a submission
+#####################################
 
 Every benchmark on the EYRA Benchmark Platform has a leaderboard that shows the
 performance of models according to the metric(s) proposed by the benchmark
@@ -377,8 +377,8 @@ algorithm:
 
 .. image:: images/submission_results.png
 
-For organizers: creating a benchmark
-####################################
+For organizers: create a benchmark
+##################################
 
 To set up a benchmark on the EYRA Benchmark Platform you should
 `contact the EYRA Benchmark team <mailto:info@eyrabenchmark.net>`_, and we will
@@ -408,8 +408,8 @@ A `notebook
 specifying how the demo datasets were created is avaiable in the `demo benchmark
 repository on github <https://github.com/EYRA-Benchmark/eyra-iris-demo>`_.
 
-For organizers: creating an evaluation
-######################################
+For organizers: create an evaluation
+####################################
 
 Benchmark organizers must submit a Docker container that compares the output of
 a submission to gold standard data and calculates performance.
