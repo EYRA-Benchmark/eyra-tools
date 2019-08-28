@@ -16,7 +16,7 @@ def iris_svm_predict(model_file, test_file, out_file):
     # Write the output to file
     output = pd.DataFrame()
     output['class'] = pred
-    output.to_csv(out_file)
+    output.to_csv(out_file, index=None)
 
 
 def predict(clf, test_data_file):
@@ -34,6 +34,6 @@ if __name__ == "__main__":
     # These are the default file paths (names) for input and output, so don't
     # change them.
     test_file = Path('data')/'input'/'test_data'
-    out_file = Path('data')/'output'/'implementation_output'
+    out_file = Path('data')/'output'
 
     iris_svm_predict(model_file, test_file, out_file)
