@@ -94,7 +94,9 @@ For submissions, this will create a directory with the following structure:
     ├── README.md
     ├── build.sh
     ├── data
+    │   ├── .gitignore
     │   ├── input
+    │   │   ├── .gitignore
     │   │   └── test_data
     │   └── output_data_appears_here.txt
     ├── export.sh
@@ -115,7 +117,9 @@ For evaluations, the file names are slightly different:
     ├── README.md
     ├── build.sh
     ├── data
+    │   ├── .gitignore
     │   ├── input
+    │   │   ├── .gitignore
     │   │   ├── ground_truth
     │   │   └── implementation_output
     │   └── output_data_appears_here.txt
