@@ -403,6 +403,11 @@ metrics (`see the benchmarks on the platform for examples
   `make sure participants' submissions focus on understanding the problem and
   advancing science rather than incrementally improving metrics <https://arxiv.org/abs/1811.03014>`_.
 
+A `notebook
+<https://github.com/EYRA-Benchmark/eyra-iris-demo/blob/master/create-datasets.ipynb>`_
+specifying how the demo datasets were created is avaiable in the `demo benchmark
+repository on github <https://github.com/EYRA-Benchmark/eyra-iris-demo>`_.
+
 For organizers: creating an evaluation
 ######################################
 
