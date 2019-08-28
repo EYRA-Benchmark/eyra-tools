@@ -1,0 +1,6 @@
+# Ignore everything in this directory
+*
+# Except this file and output_data_appears_here.txt
+!.gitignore
+!output_data_appears_here.txt
+!input

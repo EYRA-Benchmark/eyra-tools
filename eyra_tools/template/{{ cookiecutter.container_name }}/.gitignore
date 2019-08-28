@@ -23,6 +23,3 @@ docs/apidocs
 
 # Mac
 .DS_Store
-
-# ignore everything in the data directory
-data
