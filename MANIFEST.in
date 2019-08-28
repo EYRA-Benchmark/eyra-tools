@@ -1,2 +1,4 @@
+include LICENSE
+include README.rst
 recursive-include eyra_tools/template *
 global-exclude .DS_Store
