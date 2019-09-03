@@ -26,10 +26,10 @@ Quickstart
 
    - Benchmark participants should download the public test data and put it
      in this directory. The file should be called ``data/input/test_data``.
-   - Benchmark organisers should create an example output file in the same format
-     as the ground truth and put them in the ``data/input/`` directory.
-     The files should be called ``data/input/implementation_output`` and
-     ``data/input/ground_truth`` respectively.
+   - Benchmark organisers should create a ground truth file as
+     ``data/input/ground_truth`` and create an example output file (as if
+     created by a participants container), and store it as
+     ``data/input/implementation_output``.
 
 3. For submissions, implement the prediction code in ``src/submission.py``.
    For evaluations, implement evaluation metrics in ``src/evaluation.py``.
