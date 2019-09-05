@@ -7,11 +7,11 @@ from sklearn import metrics
 
 
 def evaluate_iris(submission_file, test_gt_file, out_file):
-    df = pd.read_csv(test_gt_file, header=None)
-    test_gt = list(df[0])
+    df = pd.read_csv(test_gt_file)
+    test_gt = df['class'].to_list()
 
-    df = pd.read_csv(submission_file, header=None)
-    pred = list(df[0])
+    df = pd.read_csv(submission_file)
+    pred = df['class'].to_list()
 
     prec = metrics.precision_score(test_gt, pred, average='weighted')
     recall = metrics.recall_score(test_gt, pred, average='weighted')
