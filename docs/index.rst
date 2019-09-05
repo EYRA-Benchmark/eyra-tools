@@ -41,3 +41,4 @@ Links
    best_practices
    examples
    iris
+   docs
